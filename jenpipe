@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                  git changelog: false, poll: false, url: 'https://github.com/Saichinta98/onlinebookstore.git'
+                  git changelog: false, poll: false, url: 'https://github.com/Afrozparveen/onlinebookstore.git'
             }
         }
         stage('build') {
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                deploy adapters: [tomcat9(credentialsId: 'a35ec96e-7e25-402e-a84b-f4517fe41120', path: '', url: 'http://13.126.49.16:8080')], contextPath: 'kameswari', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'a35ec96e-7e25-402e-a84b-f4517fe41120', path: '', url: 'http://13.236.153.201:8080')], contextPath: 'bookstore1', war: '**/*.war'
             }
         }
     }

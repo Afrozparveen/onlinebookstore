@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                git changelog: false, poll: false, url: 'https://github.com/Afrozparveen/onlinebookstore.git'
-            }
+                git changelog: false, poll: false, url: 'https://github.com/Afrozparveen/Train-Ticket-Reservation-System.git'
+                }
         }
         stage('build') {
             steps {
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-               deploy adapters: [tomcat9(credentialsId: 'f1970866-7016-4e4c-bb3d-de05618236af', path: '', url: 'http://3.110.216.188:8080')], contextPath: 'Nexus', war: '**/*.war'
+               deploy adapters: [tomcat9(credentialsId: '0408fc78-ef46-4d47-b83a-df6d19ca27a2', path: '', url: 'http://65.2.150.127:8080/')], contextPath: 'tickets', war: '**/*.war'
             }
         }
     }

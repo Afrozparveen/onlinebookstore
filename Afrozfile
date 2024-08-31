@@ -17,6 +17,14 @@ pipeline {
                deploy adapters: [tomcat9(credentialsId: '1c459e4c-fe87-4223-a9e0-cb04e1dda32d', path: '', url: 'http://13.233.251.193:8080/')], contextPath: 'booksscm', war: '**/*.war'
             }
         }
+       stage('sonar') {
+            steps {
+                sh 'mvn sonar:sonar \
+  -Dsonar.projectKey=sonar \
+  -Dsonar.host.url=http://52.66.236.105:9000 \
+  -Dsonar.login=d1578af8c60bb85464fc31fecc3abf2cf333ffba'
+            }
+        }
     }
 }
 
